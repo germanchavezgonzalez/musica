@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+   <link rel="stylesheet" type="text/css" href="../css/e1.css">
+      <title>COMPRA</title>
+   </head>
+   
+   <body>
+   <h3>Compra</h3></br>
+   <form action="../controladores/downmusicControlador.php?action=addCancion" method="post">
+   <label> Selecciona la cancion:</label>
+      <input list="browsers" name="cancion">
+        <datalist id="browsers">
+        <?php
+            foreach ($datos as $dato) {
+							echo "<option value=".$dato->TrackId." > ".$dato->Name."</option>";
+            }
+         ?>		
+        </datalist></br>
+        <label>Cantidad: </label>
+         <input type=number name='cantidad' value="1">	
+						
+        <button type="submit" class="btn btn-primary" >Añadir canción</button></br></br>
+     
+      </form>
+      <form action="../controladores/downmusicControlador.php?action=pagar" method="post">
+         <button type="submit" class="btn btn-warning" >Finalizar Compra</button></br>
+      </form>
+
+   </br>
+   <p><a href = "../vistas/menuVista.phtml">volver</a></br>
+      <h4><a href = "../controladores/logoutControlador.php">Cerrar Sesion</a></h4>
+
+   </body>
+   
+</html>
+
+

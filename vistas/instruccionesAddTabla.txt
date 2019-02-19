@@ -1,0 +1,2 @@
+mysql -u root musica < C:\xampp\htdocs\www\Mysql\musicaphp\db_music.sql
+//Fuera del mysql

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+      <title>DETALLE DE LA FACTURA</title>
+   </head>
+   
+   <body>
+       <h1>DETALLE DE LA FACTURAS</h1>
+            Fecha : <?= $datosFactura->InvoiceDate ?></br>
+            
+            Dirección : <?= $datosFactura->BillingAddress ?></br>
+            
+            Ciudad : <?= $datosFactura->BillingCity ?></br>
+            
+            Estado : <?= $datosFactura->BillingState ?></br>
+            
+            Pais : <?= $datosFactura->BillingCountry ?></br>
+            
+            Codigo Postal : <?= $datosFactura->BillingPostalCode ?></br>
+            
+            <h4>Total : <?= $datosFactura->Total ?></br></h4>
+
+
+
+
+			<table class="table">
+				<thead>
+					<tr>
+					    <th scope="col">InvoiceLineID</th>
+					    <th scope="col">Factura</th>
+					    <th scope="col">IdCancion</th>
+					    <th scope="col">Precio/unitario</th>
+                        <th scope="col">Cantidad</th>
+                    </tr>
+				</thead>
+				<tbody>
+					
+					<?php
+						// Solo muestra datos no accede a los mismos
+						foreach ($datos as $dato) {
+                            echo "<tr><td>".$dato->InvoiceLineId."</td><td>".$dato->InvoiceId."</td><td>".$dato->TrackId."</td>
+                            <td>".$dato->UnitPrice."</td><td>".$dato->Quantity."</td></tr>";
+						}
+					?>
+					
+				</tbody>
+            </table>
+            
+            <a href = "../controladores/facturaControlador.php">volver</a>
+      <h2><a href = "../controladores/logoutControlador.php">Cerrar Sesion</a></h2>
+   </body>
+   
+</html>
